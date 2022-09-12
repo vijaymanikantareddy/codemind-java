@@ -5,20 +5,25 @@ class Sample
     {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        int beg=1, end=n, st=1;
         for(int i=1 ; i<=n ; i++)
         {
-            if(i==n){
-                for(int j=1 ; j<=n ; j++){
-                    System.out.print("*");
+            for(int j=1 ; j<=n ; j++)
+            {
+                if(j==beg || j==end){
+                    System.out.print("x");
+                }
+                else{
+                    System.out.print("0");
                 }
             }
+            if(st<n/2+1){
+                beg++;
+                end--;
+            }
             else{
-                for(int j=1 ; j<=n ; j++){
-                    if(j==1 || j==i)
-                        System.out.print("*");
-                    else
-                        System.out.print(" ");
-                }
+                beg--;
+                end++;
             }
             System.out.println();
         }
